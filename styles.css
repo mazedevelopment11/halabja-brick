@@ -256,6 +256,13 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   align-items: center;
 }
 
+.parent-mark {
+  height: clamp(32px, 5vw, 46px);
+  width: auto;
+  margin: 0 auto 1.1rem;
+  filter: drop-shadow(0 6px 18px rgba(178, 39, 46, 0.45));
+}
+
 .eyebrow {
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.78rem;
