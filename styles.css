@@ -600,10 +600,30 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   margin: 0 auto;
   padding: 0 clamp(1.25rem, 4vw, 3rem);
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 0.8rem;
+  justify-content: space-between;
+  gap: 0.8rem 1.5rem;
   color: var(--text-faint);
   font-size: 0.82rem;
+}
+
+.footer-row {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.footer-credit {
+  color: var(--text-faint);
+}
+.footer-credit a {
+  color: var(--red-400);
+  font-weight: 500;
+  transition: color 0.25s;
+}
+.footer-credit a:hover {
+  color: var(--red-300);
 }
 
 /* ===== Responsive ===== */
