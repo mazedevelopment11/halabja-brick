@@ -16,23 +16,42 @@
 
 <header class="site-header" id="siteHeader">
   <div class="header-inner">
-    <a href="#top" class="brand">
+    <a href="index.html" class="brand">
       <img src="assets/logos/brick-icon.png" alt="" class="brand-mark">
       <span class="brand-text">HALABJA <em>BRICK CHAIN</em></span>
     </a>
     <nav class="main-nav">
-      <a href="#factories">Factories</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
+      <div class="nav-item">
+        <a href="index.html#factories">Factories <span class="nav-caret"></span></a>
+        <div class="nav-dropdown">
+          <a href="aso.html"><img src="assets/logos/aso-logo.png" alt="">Aso Brick</a>
+          <a href="hilal.html"><img src="assets/logos/hilal-logo.png" alt="">Hilal Brick</a>
+          <a href="ishtar.html"><img src="assets/logos/ishtar-logo.png" alt="">Ishtar Brick</a>
+        </div>
+      </div>
+      <a href="index.html#about">About</a>
+      <a href="index.html#contact">Contact</a>
     </nav>
     <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
   </div>
   <nav class="mobile-nav" id="mobileNav">
-    <a href="#factories">Factories</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
+    <div class="mobile-nav-item" id="mobileFactoriesItem">
+      <div class="mobile-nav-item-head">
+        <a href="index.html#factories">Factories</a>
+        <button class="mobile-nav-caret-btn" id="mobileFactoriesToggle" aria-label="Toggle factories submenu" aria-expanded="false">
+          <svg viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+      <div class="mobile-nav-sub">
+        <a href="aso.html"><img src="assets/logos/aso-logo.png" alt="">Aso Brick</a>
+        <a href="hilal.html"><img src="assets/logos/hilal-logo.png" alt="">Hilal Brick</a>
+        <a href="ishtar.html"><img src="assets/logos/ishtar-logo.png" alt="">Ishtar Brick</a>
+      </div>
+    </div>
+    <a href="index.html#about">About</a>
+    <a href="index.html#contact">Contact</a>
   </nav>
 </header>
 
@@ -54,18 +73,18 @@
     <div class="glass-panel" id="glassPanel">
       <p class="glass-label">Select a Factory</p>
       <div class="factory-tiles">
-        <button class="factory-tile" data-target="aso">
+        <a class="factory-tile" href="aso.html">
           <span class="tile-glow"></span>
           <img src="assets/logos/aso-logo.png" alt="Aso Brick logo" loading="lazy">
-        </button>
-        <button class="factory-tile" data-target="hilal">
+        </a>
+        <a class="factory-tile" href="hilal.html">
           <span class="tile-glow"></span>
           <img src="assets/logos/hilal-logo.png" alt="Hilal Brick logo" loading="lazy">
-        </button>
-        <button class="factory-tile" data-target="ishtar">
+        </a>
+        <a class="factory-tile" href="ishtar.html">
           <span class="tile-glow"></span>
           <img src="assets/logos/ishtar-logo.png" alt="Ishtar Brick logo" loading="lazy">
-        </button>
+        </a>
       </div>
     </div>
 
@@ -123,6 +142,7 @@
         <li>Structural &amp; load-bearing brick</li>
         <li>Strict dimensional tolerance</li>
       </ul>
+      <a href="aso.html" class="factory-link">View Aso Brick <span aria-hidden="true">→</span></a>
     </div>
   </div>
 
@@ -140,6 +160,7 @@
         <li>Refined color consistency</li>
         <li>Weather-resistant firing</li>
       </ul>
+      <a href="hilal.html" class="factory-link">View Hilal Brick <span aria-hidden="true">→</span></a>
     </div>
   </div>
 
@@ -157,6 +178,7 @@
         <li>Architectural finishes</li>
         <li>Project-scale supply</li>
       </ul>
+      <a href="ishtar.html" class="factory-link">View Ishtar Brick <span aria-hidden="true">→</span></a>
     </div>
   </div>
 </section>
@@ -182,6 +204,10 @@
     <p class="footer-credit">Developed by <a href="https://www.halabjagroup.com" target="_blank" rel="noopener">Halabja Group</a></p>
   </div>
 </footer>
+
+<a class="hg-badge" href="https://www.halabjagroup.com" target="_blank" rel="noopener" aria-label="Halabja Group">
+  <img src="assets/logos/halabja-group-mark-red.png" alt="">
+</a>
 
 <script src="script.js"></script>
 </body>
