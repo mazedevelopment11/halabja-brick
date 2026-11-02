@@ -51,7 +51,7 @@ if (mobileFactoriesItem && mobileFactoriesToggle) {
 
 if ('IntersectionObserver' in window) {
   const revealTargets = document.querySelectorAll(
-    '.factory-block, .stat-card, .about-copy, .writing-copy, .cert-card'
+    '.factory-block, .stat-card, .about-copy, .writing-copy, .cert-card, .type-card, .project-card'
   );
   revealTargets.forEach((el) => el.classList.add('reveal'));
 
@@ -122,28 +122,39 @@ if (carousel) {
   if (prevBtn) prevBtn.addEventListener('click', () => scrollByOne(-1));
   if (nextBtn) nextBtn.addEventListener('click', () => scrollByOne(1));
 
-  /* Lightbox */
-  const lightbox = document.getElementById('lightbox');
-  if (lightbox) {
-    const lightboxImg = lightbox.querySelector('img');
-    const closeBtn = lightbox.querySelector('.lightbox-close');
-    const openLightbox = (src, alt) => {
-      lightboxImg.src = src;
-      lightboxImg.alt = alt;
-      lightbox.classList.add('open');
-    };
-    const closeLightbox = () => lightbox.classList.remove('open');
+}
 
-    slides.forEach((slide) => {
-      const img = slide.querySelector('img');
-      slide.addEventListener('click', () => openLightbox(img.src, img.alt));
-    });
-    closeBtn.addEventListener('click', closeLightbox);
-    lightbox.addEventListener('click', (e) => {
-      if (e.target === lightbox) closeLightbox();
-    });
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeLightbox();
-    });
-  }
+/* ===== Lightbox (album, projects, certificates, datasheets) ===== */
+const lightbox = document.getElementById('lightbox');
+if (lightbox) {
+  const lightboxImg = lightbox.querySelector('img');
+  const closeLightbox = () => lightbox.classList.remove('open');
+  document.addEventListener('click', (e) => {
+    const trigger = e.target.closest('[data-lightbox], .carousel-slide');
+    if (!trigger) return;
+    const img = trigger.querySelector('img');
+    lightboxImg.src = trigger.dataset.lightbox || img.src;
+    lightboxImg.alt = (img && img.alt) || '';
+    lightbox.classList.add('open');
+  });
+  lightbox.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeLightbox();
+  });
+}
+
+/* ===== Brick type filter ===== */
+const typeFilter = document.querySelector('.type-filter');
+if (typeFilter) {
+  const cards = document.querySelectorAll('.type-card');
+  typeFilter.addEventListener('click', (e) => {
+    const btn = e.target.closest('button[data-filter]');
+    if (!btn) return;
+    typeFilter.querySelectorAll('button').forEach((b) => b.classList.toggle('active', b === btn));
+    const f = btn.dataset.filter;
+    cards.forEach((c) => c.classList.toggle('hidden', f !== 'all' && c.dataset.cat !== f));
+  });
 }
