@@ -30,6 +30,7 @@
         </div>
       </div>
       <a href="index.html#about">About</a>
+      <a href="index.html#calculator">Calculator</a>
       <a href="index.html#contact">Contact</a>
     </nav>
     <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
@@ -51,6 +52,7 @@
       </div>
     </div>
     <a href="index.html#about">About</a>
+    <a href="index.html#calculator">Calculator</a>
     <a href="index.html#contact">Contact</a>
   </nav>
 </header>
@@ -183,10 +185,85 @@
   </div>
 </section>
 
+<section class="specs" id="calculator">
+  <div class="section-inner">
+    <p class="kicker">03 — Brick Calculator</p>
+    <h2 class="section-title">How many bricks <span class="accent-text">do you need?</span></h2>
+    <p class="specs-lead">Tell us the size of your wall, pick a brick, and see how many bricks, pallets and how much weight you need — instantly.</p>
+
+    <div class="calc">
+      <div class="calc-inputs" id="calcInputs">
+        <div class="calc-step">
+          <h3><span class="step-num">1</span>Your wall</h3>
+          <div class="seg" id="modeSeg">
+            <button class="active" data-mode="size">Length × height</button>
+            <button data-mode="area">I know the area</button>
+          </div>
+          <div class="calc-fields" id="fieldsSize">
+            <label>Length <span class="field"><input type="number" id="inLength" value="10" min="0" step="0.1" inputmode="decimal"><i>m</i></span></label>
+            <label>Height <span class="field"><input type="number" id="inHeight" value="3" min="0" step="0.1" inputmode="decimal"><i>m</i></span></label>
+            <label>Doors &amp; windows <span class="field"><input type="number" id="inOpenings" value="0" min="0" step="0.1" inputmode="decimal"><i>m²</i></span></label>
+          </div>
+          <div class="calc-fields" id="fieldsArea" hidden>
+            <label>Wall area <span class="field"><input type="number" id="inArea" value="30" min="0" step="0.5" inputmode="decimal"><i>m²</i></span></label>
+          </div>
+        </div>
+
+        <div class="calc-step">
+          <h3><span class="step-num">2</span>Pick a brick</h3>
+          <div class="brick-picker" id="brickPicker"></div>
+          <div class="thickness" id="thicknessWrap" hidden>
+            <span>Wall thickness for Type A</span>
+            <div class="seg" id="thicknessSeg"></div>
+          </div>
+        </div>
+
+        <div class="calc-step">
+          <h3><span class="step-num">3</span>Extra for breakage</h3>
+          <div class="seg" id="wasteSeg">
+            <button data-waste="0">None</button>
+            <button class="active" data-waste="5">5%</button>
+            <button data-waste="10">10%</button>
+          </div>
+        </div>
+      </div>
+
+      <aside class="calc-result" id="calcResult" aria-live="polite"></aside>
+    </div>
+
+    <h3 class="table-title">Full specification table</h3>
+    <ul class="table-legend">
+      <li><b>Pallet</b> — one delivery pallet <span lang="ar" dir="rtl">(سكية)</span>.</li>
+      <li><b>MPa</b> — strength; the higher the number, the stronger the brick.</li>
+      <li><b>Per m²</b> — bricks to cover 1 m² of wall face. <b>Per m³</b> — bricks in 1 m³ of masonry.</li>
+    </ul>
+    <div class="table-wrap">
+      <table class="spec-table" id="specTable">
+        <thead>
+          <tr>
+            <th>Type<small lang="ar" dir="rtl">نوع الطابوق</small></th>
+            <th>Use</th>
+            <th>Size (cm)</th>
+            <th>Strength</th>
+            <th>Weight per brick<small lang="ar" dir="rtl">وزن طابوق واحد</small></th>
+            <th>Weight per pallet<small lang="ar" dir="rtl">وزن سكية واحدة</small></th>
+            <th>Bricks per pallet<small lang="ar" dir="rtl">عدد طابوق في سكية واحدة</small></th>
+            <th>Bricks per m³<small lang="ar" dir="rtl">عدد طابوق في م٣</small></th>
+            <th>Bricks per m²<small lang="ar" dir="rtl">عدد طابوق في م٢</small></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <p class="table-note">Figures are approximate (≈) and taken from the factory catalogue. Counts are for a dry wall without mortar joints — confirm final quantities with your engineer.</p>
+  </div>
+</section>
+
 <section class="cta" id="contact">
   <div class="cta-glow"></div>
   <div class="section-inner cta-inner">
-    <p class="kicker">03 — Get in Touch</p>
+    <p class="kicker">04 — Get in Touch</p>
     <h2 class="section-title">Building something? <span class="accent-text">Let's talk brick.</span></h2>
     <p class="cta-sub">Reach out to the Halabja Group Brick Factory Chain for orders, specifications, and site supply across all three factories.</p>
     <a class="cta-button" href="mailto:info@halabjagroup.com">
@@ -210,5 +287,6 @@
 </a>
 
 <script src="script.js"></script>
+<script src="calculator.js"></script>
 </body>
 </html>
